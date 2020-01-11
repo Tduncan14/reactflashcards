@@ -1,16 +1,42 @@
-import React from 'react';
+import React,{Component} from 'react';
+import './App.css'
+import Quizbar from './components/Quizbar';
+class App extends Component {
+
+   constructor(props){
+     super(props)
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div>
-          <h1>hey</h1>
-        </div>
-      </header>
-    </div>
-  );
+     this.state = {
+
+      cardStyle:"random"
+
+
+     }
+   }
+
+   
+   userChoice = (cardStyle) =>{
+
+     this.setState({
+
+      cardStyle,
+     })
+
+
+   }
+
+
+
+  render(){
+
+
+    return(
+      <div className="App">
+      <Quizbar useChoice = {this.userChoice} />
+      </div>
+    )
+  }
 }
 
 export default App;
