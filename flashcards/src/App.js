@@ -38,7 +38,7 @@ class App extends Component {
         <div className="container">
       <Quizbar userChoice = {this.userChoice} />
 
-      <FlashCard/>
+      <FlashCard className={this.state.cardStyle}/>
       </div>
       </div>
     )
