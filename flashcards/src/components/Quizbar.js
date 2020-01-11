@@ -11,6 +11,24 @@ import QuizType from './QuizType';
 const Quizbar = (props) =>{
 
 
+   const quizArray = [
+     {
+       icon:"dice",
+       type:"Random"
+     },
+     {
+      icon:"file-alt",
+      type:"Regular"
+    },
+    {
+      icon:"dumbell",
+      type:"Weight"
+    },
+    {
+      icon:"font",
+      type:"Multi"
+    }
+   ]
 
   return(
      <div className="quiz-bar">

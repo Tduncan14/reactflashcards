@@ -30,10 +30,11 @@ class App extends Component {
 
   render(){
 
+    console.log(this.state.cardStyle,"state changes")
 
     return(
       <div className="App">
-      <Quizbar useChoice = {this.userChoice} />
+      <Quizbar userChoice = {this.userChoice} />
       </div>
     )
   }
