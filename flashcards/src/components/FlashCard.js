@@ -18,7 +18,11 @@ class FlashCard extends Component {
 
 
       flip = (e) =>{
+         let newFlip = this.state.flipClass === "" ? "flip":""
 
+         this.setState({
+            flipClass:newFlip
+         })
 
 
       }
@@ -31,7 +35,7 @@ class FlashCard extends Component {
          <div>
         
             <div className="row align-items-center card-holder">
-               <div onClick={this.flip} className="col-sm-6 offset-sm-3 card mb-3">
+               <div onClick={this.flip} className={`col-sm-6 offset-sm-3 card mb-3 ${this.state.flipClass}`}>
             <RandomWeight />
             </div>
             </div>
