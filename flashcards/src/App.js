@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './App.css'
 import Quizbar from './components/Quizbar';
+import FlashCard from './components/FlashCard';
 class App extends Component {
 
    constructor(props){
@@ -33,8 +34,12 @@ class App extends Component {
     console.log(this.state.cardStyle,"state changes")
 
     return(
-      <div className="App">
+      <div className="App align-items-center d-flex">
+        <div className="container">
       <Quizbar userChoice = {this.userChoice} />
+
+      <FlashCard/>
+      </div>
       </div>
     )
   }
