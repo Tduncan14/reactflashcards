@@ -11,7 +11,16 @@ const RegularCard = () => {
 
     return(
         <div>
-            <h1>Regular</h1>
+   <div className="card-front">
+        AWS service
+   </div>
+
+   <div className="card-back">
+
+       <div>Description</div>
+       <div>Category</div>
+       
+       </div>
         </div>
     )
 }

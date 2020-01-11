@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const MultiCard = () =>{
+const MultiCard = (props) =>{
 
 
 
@@ -11,7 +11,17 @@ const MultiCard = () =>{
 
     return(
         <div>
-             <h1> Multi </h1>
+            <div className="card-front">
+              <div> AWS Service </div>
+
+                <ul className ="multi">
+                options
+            </ul>
+            </div>
+
+            <div className="card-front">
+                multiChoice Answer
+            </div>
         </div>
     )
     }
