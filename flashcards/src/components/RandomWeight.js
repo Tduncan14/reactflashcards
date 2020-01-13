@@ -11,11 +11,14 @@ const RandomWeight = (props) => {
     return(
         <div>
          <div className="card-back">
-            {question.desc}
+            {question.answer}
+            
          </div>
 
          <div className="card-front">
-            AWS Category
+             <h3>Weight</h3>
+         {question.service}
+         {question.desc}
          </div>
         </div>
     )

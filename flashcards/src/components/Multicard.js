@@ -12,7 +12,7 @@ const MultiCard = (props) =>{
     return(
         <div>
             <div className="card-front">
-              <div> AWS Service </div>
+              <div> MultiCard </div>
 
                 <ul className ="multi">
                 options

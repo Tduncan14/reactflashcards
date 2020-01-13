@@ -2,7 +2,11 @@ import React,{Component} from 'react';
 import MultiCard from './Multicard.js';
 import RandomWeight from './RandomWeight';
 import RegularCard from './RegularCard';
-import axios from 'axios'
+import axios from 'axios';
+import {faSpinner} from '@fortawesome/free-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+library.add(faSpinner)
 
 class FlashCard extends Component {
 
@@ -15,7 +19,8 @@ class FlashCard extends Component {
 
         this.state ={
           questionData:"",
-           flipClass:""
+           flipClass:"",
+           ready:false
         }
      }
 
@@ -33,7 +38,7 @@ class FlashCard extends Component {
 
 
       componentDidMount(){
-         this.newCard()
+        
       }
 
 
@@ -61,7 +66,8 @@ class FlashCard extends Component {
 
 
             this.setState({
-               questionData:response.data
+               questionData:response.data,
+               ready:true
             })
          })
 
@@ -73,14 +79,49 @@ class FlashCard extends Component {
    
    render(){
 
+      if(!this.state.ready){
 
+         this.newCard();
+
+         
+
+      return( <div className="spinner-wrapper">
+            <FontAwesomeIcon icon="spinner" size="6x" spin/>
+      </div> )
+
+    
+       
+      }
+
+
+      const cardStyle = this.props.cardStyle;
+
+      let card;
+
+      
+
+      if(cardStyle === 'Multi'){
+
+         card = <MultiCard questionData ={this.state.questionData}/>
+      }
+
+      else if(cardStyle === "Regular"){
+
+          card = <RegularCard questionData = {this.state.questionData} />
+      }
+      else {
+         
+         card = <RandomWeight questionData ={this.state.questionData}/>
+
+         console.log(this.props.cardStyle,"cardstyle")
+      }
 
       return(
          <div>
         
             <div className="row align-items-center card-holder">
                <div onClick={this.flip} className={`col-sm-6 offset-sm-3 card mb-3 ${this.state.flipClass}`}>
-            <RandomWeight questionData={this.state.questionData} />
+           {card}
             </div>
             <button onClick ={this.newCard} className="btn btn-primary btn-lg">Next Ouestion!</button>
             </div>

@@ -16,13 +16,14 @@ function RegularCard (props) {
     return(
         <div>
    <div className="card-front">
-        
+            <h1>RegularCard</h1>
+            {question.service}
    </div>
 
    <div className="card-back">
-{/* 
-       <div>{question.desc}</div> */}
-       {/* <div>{question.cat}</div> */}
+
+       <div>{question.desc}</div> 
+        <div>{question.cat}</div> 
        
        </div>
         </div>
