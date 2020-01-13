@@ -10,7 +10,8 @@ class App extends Component {
 
      this.state = {
 
-      cardStyle:"random"
+      cardStyle:"random",
+      ready:false
 
 
      }
@@ -22,9 +23,16 @@ class App extends Component {
      this.setState({
 
       cardStyle,
+      ready:false
      })
 
 
+   }
+
+   nowReady = () =>{
+     this.setState({
+       ready:true
+     })
    }
 
 
@@ -38,7 +46,7 @@ class App extends Component {
         <div className="container">
       <Quizbar userChoice = {this.userChoice} />
 
-      <FlashCard cardStyle={this.state.cardStyle}/>
+      <FlashCard cardStyle={this.state.cardStyle} nowReady={this.nowReady} ready={this.state.ready}/>
       </div>
       </div>
     )

@@ -20,7 +20,7 @@ class FlashCard extends Component {
         this.state ={
           questionData:"",
            flipClass:"",
-           ready:false
+          
         }
      }
 
@@ -55,10 +55,10 @@ class FlashCard extends Component {
             path = this.apiHostRoot+'/all'
          }
          else if(cardStyle ==='Weight'){
-           path = this.apiHostRoot+'/weighted'
+            path = this.apiHostRoot+'/all'
          }
-         else{
-            path = this.apiHostRoot+'/multi'
+         else if(cardStyle === 'Multi'){
+            path = this.apiHostRoot+'/all'
          }
 
          axios.get(path).then((response) =>{
@@ -67,8 +67,9 @@ class FlashCard extends Component {
 
             this.setState({
                questionData:response.data,
-               ready:true
+              
             })
+            this.props.nowReady()
          })
 
 
@@ -79,7 +80,7 @@ class FlashCard extends Component {
    
    render(){
 
-      if(!this.state.ready){
+      if(!this.props.ready){
 
          this.newCard();
 
